@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DiagnÃ³stico Comercial Gratuito â TECX Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f6fa;
+    --card: #ffffff;
+    --fg: #0f172a;
+    --fg2: #64748b;
+    --accent: #7c3aed;
+    --accent2: #a855f7;
+    --green: #22c55e;
+    --red: #ef4444;
+    --border: #e2e8f0;
+    --wa-bg: #ece5dd;
+    --wa-bubble-out: #dcf8c6;
+    --wa-bubble-in: #ffffff;
+    --wa-header: #075e54;
+    --wa-header2: #128c7e;
+    --wa-send: #25d366;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --fg: #f1f5f9;
+      --fg2: #94a3b8;
+      --border: #334155;
+      --wa-bg: #0a1929;
+      --wa-bubble-out: #005c4b;
+      --wa-bubble-in: #1e293b;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f172a; --card: #1e293b; --fg: #f1f5f9; --fg2: #94a3b8;
+    --border: #334155; --wa-bg: #0a1929; --wa-bubble-out: #005c4b; --wa-bubble-in: #1e293b;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    min-height: 100vh;
+  }
+
+  /* ââ HEADER ââ */
+  .header {
+    background: var(--accent);
+    padding: 14px max(16px, env(safe-area-inset-left,0px));
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .logo-mark {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #fff; font-size: 15px; letter-spacing: -1px;
+  }
+  .header h1 { color: #fff; font-size: 15px; font-weight: 700; }
+  .header p { color: rgba(255,255,255,0.75); font-size: 11px; }
+
+  /* ââ MAIN WRAPPER ââ */
+  .main {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 24px max(16px, env(safe-area-inset-left,0px));
+    padding-bottom: 40px;
+  }
+
+  /* ââ PROGRESS BAR ââ */
+  .progress-wrap { margin-bottom: 24px; }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--fg2); margin-bottom: 6px;
+  }
+  .progress-bar {
+    height: 4px; background: var(--border); border-radius: 99px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: var(--accent);
+    border-radius: 99px; transition: width .4s ease;
+  }
+
+  /* ââ STEP CARD ââ */
+  .step-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-size: 13px; font-weight: 700; margin-bottom: 12px;
+  }
+  .step-title {
+    font-size: 18px; font-weight: 700; margin-bottom: 6px; line-height: 1.3;
+  }
+  .step-sub {
+    font-size: 13px; color: var(--fg2); margin-bottom: 20px; line-height: 1.5;
+  }
+
+  /* ââ NICHE GRID ââ */
+  .niche-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .niche-btn {
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    background: var(--card);
+    cursor: pointer;
+    display: flex; align-items: center; gap: 10px;
+    transition: all .2s;
+    text-align: left;
+    font-family: inherit;
+    color: var(--fg);
+  }
+  .niche-btn:hover { border-color: var(--accent); background: rgba(124,58,237,.04); }
+  .niche-btn.selected { border-color: var(--accent); background: rgba(124,58,237,.08); }
+  .niche-icon { font-size: 22px; flex-shrink: 0; }
+  .niche-label { font-size: 13px; font-weight: 600; line-height: 1.3; }
+
+  /* ââ SLIDER ââ */
+  .slider-wrap { padding: 4px 0 16px; }
+  input[type=range] {
+    width: 100%; -webkit-appearance: none; appearance: none;
+    height: 6px; border-radius: 99px;
+    background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--pct,50%), var(--border) var(--pct,50%));
+    outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--card);
+    box-shadow: 0 2px 6px rgba(124,58,237,.4);
+  }
+  .slider-labels {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--fg2); margin-top: 8px;
+  }
+  .slider-value {
+    text-align: center; font-size: 22px; font-weight: 800;
+    color: var(--accent); margin-bottom: 8px;
+  }
+
+  /* ââ PAIN CHIPS ââ */
+  .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 1.5px solid var(--border); border-radius: 99px;
+    padding: 7px 14px; font-size: 12px; font-weight: 500;
+    cursor: pointer; transition: all .15s;
+    background: var(--card); color: var(--fg);
+    font-family: inherit;
+  }
+  .chip:hover { border-color: var(--accent); }
+  .chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* ââ INPUTS ââ */
+  .input-group { margin-bottom: 14px; }
+  .input-group label { display: block; font-size: 12px; font-weight: 600; color: var(--fg2); margin-bottom: 6px; }
+  .input-group input {
+    width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 11px 14px; font-size: 14px; font-family: inherit;
+    background: var(--card); color: var(--fg); outline: none;
+    transition: border-color .15s;
+  }
+  .input-group input:focus { border-color: var(--accent); }
+
+  /* ââ RESULT CARD ââ */
+  .result-card {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+    border-radius: 16px; padding: 28px 24px; color: #fff; margin-bottom: 16px;
+  }
+  .result-label { font-size: 12px; font-weight: 600; opacity: .8; letter-spacing: .05em; text-transform: uppercase; margin-bottom: 8px; }
+  .result-value { font-size: 36px; font-weight: 800; margin-bottom: 4px; }
+  .result-sub { font-size: 13px; opacity: .85; }
+  .result-breakdown {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 16px;
+  }
+  .breakdown-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .breakdown-row:last-child { border-bottom: none; }
+  .breakdown-label { color: var(--fg2); }
+  .breakdown-val { font-weight: 700; color: var(--red); }
+
+  /* ââ BUTTONS ââ */
+  .btn-primary {
+    display: block; width: 100%; padding: 15px;
+    background: var(--accent); color: #fff;
+    border: none; border-radius: 12px;
+    font-size: 15px; font-weight: 700; font-family: inherit;
+    cursor: pointer; transition: all .2s; text-align: center;
+    text-decoration: none; letter-spacing: .01em;
+  }
+  .btn-primary:hover { background: #6d28d9; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(124,58,237,.35); }
+  .btn-secondary {
+    display: block; width: 100%; padding: 13px;
+    background: transparent; color: var(--fg2);
+    border: 1.5px solid var(--border); border-radius: 12px;
+    font-size: 14px; font-weight: 500; font-family: inherit;
+    cursor: pointer; transition: all .2s; text-align: center;
+    margin-top: 10px;
+  }
+  .btn-secondary:hover { border-color: var(--fg2); color: var(--fg); }
+
+  /* ââ SIMULATION TRIGGER ââ */
+  .sim-trigger {
+    background: var(--card); border: 2px solid var(--accent);
+    border-radius: 16px; padding: 20px 20px;
+    text-align: center; margin-top: 20px;
+  }
+  .sim-trigger h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .sim-trigger p { font-size: 13px; color: var(--fg2); margin-bottom: 16px; }
+  .sim-btns { display: flex; gap: 10px; }
+  .sim-btn-chat {
+    flex: 1; padding: 13px; border-radius: 10px;
+    background: #25d366; color: #fff; border: none;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 6px;
+    transition: all .2s;
+  }
+  .sim-btn-chat:hover { background: #1da851; transform: translateY(-1px); }
+  .sim-btn-call {
+    flex: 1; padding: 13px; border-radius: 10px;
+    background: var(--accent); color: #fff; border: none;
+    font-size: 14px; font-weight: 700; cursor: pointer;
+    font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 6px;
+    transition: all .2s;
+  }
+  .sim-btn-call:hover { background: #6d28d9; transform: translateY(-1px); }
+
+  /* ââââââââââââââââââââââââââââââââââââââ
+     WHATSAPP SIMULATION PANEL
+  ââââââââââââââââââââââââââââââââââââââ */
+  .wa-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
+    display: flex; align-items: flex-end; justify-content: flex-end;
+    opacity: 0; pointer-events: none; transition: opacity .25s;
+  }
+  .wa-overlay.open { opacity: 1; pointer-events: all; }
+
+  .wa-panel {
+    width: 400px; height: 100vh; max-height: 100vh;
+    background: var(--wa-bg); display: flex; flex-direction: column;
+    transform: translateX(100%); transition: transform .3s cubic-bezier(.4,0,.2,1);
+    box-shadow: -4px 0 24px rgba(0,0,0,.2);
+  }
+  .wa-overlay.open .wa-panel { transform: translateX(0); }
+
+  @media (max-width: 480px) {
+    .wa-panel { width: 100vw; }
+  }
+
+  /* WA Header */
+  .wa-header {
+    background: var(--wa-header);
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+    flex-shrink: 0;
+  }
+  .wa-close {
+    background: none; border: none; color: rgba(255,255,255,.8);
+    font-size: 20px; cursor: pointer; padding: 4px 8px 4px 0;
+    display: flex; align-items: center;
+  }
+  .wa-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0; border: 2px solid rgba(255,255,255,.3);
+  }
+  .wa-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .wa-contact-info { flex: 1; min-width: 0; }
+  .wa-contact-name { color: #fff; font-weight: 600; font-size: 15px; }
+  .wa-contact-status { color: rgba(255,255,255,.75); font-size: 12px; }
+  .wa-call-btn {
+    background: none; border: none; color: rgba(255,255,255,.85);
+    cursor: pointer; padding: 6px; border-radius: 50%;
+    font-size: 18px; transition: background .15s;
+    display: flex; align-items: center;
+  }
+  .wa-call-btn:hover { background: rgba(255,255,255,.1); }
+
+  /* WA tabs (Chat / LigaÃ§Ã£o) */
+  .wa-tabs {
+    background: var(--wa-header2);
+    display: flex;
+  }
+  .wa-tab {
+    flex: 1; padding: 10px; text-align: center;
+    color: rgba(255,255,255,.65); font-size: 13px; font-weight: 600;
+    cursor: pointer; border-bottom: 3px solid transparent;
+    transition: all .15s; letter-spacing: .02em;
+  }
+  .wa-tab.active { color: #fff; border-bottom-color: #25d366; }
+
+  /* WA messages */
+  .wa-messages {
+    flex: 1; overflow-y: auto; padding: 16px 12px;
+    display: flex; flex-direction: column; gap: 4px;
+    background: var(--wa-bg);
+  }
+  /* Wallpaper subtle */
+  .wa-messages { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23128c7e' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+
+  .wa-date-sep {
+    text-align: center; margin: 8px 0;
+    font-size: 11px; color: var(--fg2);
+    background: rgba(0,0,0,.12); border-radius: 99px;
+    padding: 3px 10px; align-self: center;
+  }
+  .wa-msg { display: flex; margin: 1px 0; }
+  .wa-msg.in { justify-content: flex-start; }
+  .wa-msg.out { justify-content: flex-end; }
+  .wa-bubble {
+    max-width: 78%; padding: 7px 10px 6px;
+    border-radius: 8px; font-size: 14px; line-height: 1.45;
+    position: relative;
+  }
+  .wa-msg.in .wa-bubble {
+    background: var(--wa-bubble-in);
+    border-top-left-radius: 2px;
+    color: var(--fg);
+    box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  }
+  .wa-msg.out .wa-bubble {
+    background: var(--wa-bubble-out);
+    border-top-right-radius: 2px;
+    color: var(--fg);
+    box-shadow: 0 1px 2px rgba(0,0,0,.12);
+  }
+  .wa-time {
+    font-size: 10px; color: var(--fg2); float: right;
+    margin-left: 8px; margin-top: 2px; white-space: nowrap;
+  }
+  .wa-msg.out .wa-time::after { content: ' ââ'; color: #53bdeb; }
+
+  /* Typing indicator */
+  .wa-typing {
+    display: flex; align-items: center; gap: 4px; padding: 10px 12px;
+  }
+  .wa-typing span {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--fg2); animation: bounce .9s ease-in-out infinite;
+  }
+  .wa-typing span:nth-child(2) { animation-delay: .15s; }
+  .wa-typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes bounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+  .typing-bubble {
+    background: var(--wa-bubble-in); border-radius: 8px; border-top-left-radius: 2px;
+    padding: 6px 12px; box-shadow: 0 1px 2px rgba(0,0,0,.12);
+    display: none;
+  }
+  .typing-bubble.visible { display: flex; }
+
+  /* WA input */
+  .wa-input-wrap {
+    padding: 8px 10px; background: var(--bg);
+    display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+  }
+  .wa-input {
+    flex: 1; border: none; border-radius: 22px;
+    padding: 10px 16px; font-size: 14px; font-family: inherit;
+    background: var(--card); color: var(--fg); outline: none;
+    resize: none; max-height: 120px;
+  }
+  .wa-send-btn {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--wa-send); border: none;
+    color: #fff; font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: background .15s;
+  }
+  .wa-send-btn:hover { background: #1da851; }
+  .wa-send-btn:disabled { background: var(--border); cursor: not-allowed; }
+
+  /* Limit info */
+  .wa-limit-banner {
+    background: rgba(124,58,237,.12); border-top: 1px solid rgba(124,58,237,.2);
+    padding: 10px 16px; text-align: center;
+    font-size: 12px; color: var(--accent); font-weight: 500;
+    display: none;
+  }
+  .wa-limit-banner.show { display: block; }
+
+  /* ââ CALL TAB ââ */
+  .wa-call-tab {
+    display: none; flex-direction: column; align-items: center;
+    justify-content: center; flex: 1; padding: 32px 24px; gap: 16px;
+    text-align: center;
+  }
+  .wa-call-tab.active { display: flex; }
+  .wa-chat-tab { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+  .wa-chat-tab.hidden { display: none; }
+
+  .call-avatar-big {
+    width: 100px; height: 100px; border-radius: 50%;
+    overflow: hidden; border: 4px solid var(--wa-send);
+    box-shadow: 0 0 0 8px rgba(37,211,102,.15);
+    margin-bottom: 8px;
+  }
+  .call-avatar-big img { width: 100%; height: 100%; object-fit: cover; }
+  .call-name { font-size: 22px; font-weight: 700; }
+  .call-sub { font-size: 13px; color: var(--fg2); margin-bottom: 8px; }
+  .call-info {
+    background: var(--card); border-radius: 12px; padding: 14px 20px;
+    text-align: left; width: 100%;
+    border: 1px solid var(--border);
+  }
+  .call-info p { font-size: 13px; color: var(--fg2); line-height: 1.6; }
+  .call-info strong { color: var(--fg); }
+  .call-number-input {
+    width: 100%; border: 1.5px solid var(--border); border-radius: 10px;
+    padding: 12px 16px; font-size: 16px; text-align: center;
+    font-family: inherit; background: var(--card); color: var(--fg); outline: none;
+    letter-spacing: .05em;
+  }
+  .call-number-input:focus { border-color: var(--wa-send); }
+  .btn-call-green {
+    width: 100%; padding: 15px; border-radius: 12px;
+    background: var(--wa-send); color: #fff; border: none;
+    font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-call-green:hover { background: #1da851; transform: translateY(-1px); }
+  .btn-call-green:disabled { background: var(--border); cursor: not-allowed; transform: none; }
+  .call-alt {
+    font-size: 12px; color: var(--fg2); padding: 8px 0;
+  }
+  .call-alt a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .call-status {
+    font-size: 13px; color: var(--wa-send); font-weight: 600;
+    padding: 10px 0; display: none;
+  }
+  .call-status.show { display: block; }
+
+  /* ââ CTA END ââ */
+  .cta-end {
+    background: var(--card); border: 2px solid var(--accent);
+    border-radius: 12px; padding: 16px; margin-top: 12px;
+    text-align: center; display: none;
+  }
+  .cta-end.show { display: block; }
+  .cta-end p { font-size: 13px; color: var(--fg2); margin-bottom: 12px; }
+  .cta-end .btn-primary { font-size: 14px; padding: 12px; }
+
+  /* ââ STEP VISIBILITY ââ */
+  .step { display: none; }
+  .step.active { display: block; }
+
+  /* ââ STEP NAV ââ */
+  .step-nav { display: flex; gap: 10px; margin-top: 20px; }
+  .step-nav .btn-primary { flex: 1; }
+  .btn-back {
+    padding: 13px 20px; border-radius: 12px;
+    background: transparent; border: 1.5px solid var(--border);
+    color: var(--fg2); font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: inherit; transition: all .15s;
+  }
+  .btn-back:hover { border-color: var(--fg2); color: var(--fg); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="logo-mark">TX</div>
+  <div>
+    <h1>TECX Systems</h1>
+    <p>Plataforma Comercial Inteligente</p>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span id="step-label">Passo 1 de 4</span>
+      <span id="step-pct">25%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill" style="width:25%"></div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Nicho -->
+  <div class="step active" id="step-1">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h2 class="step-title">Qual Ã© o seu segmento?</h2>
+      <p class="step-sub">Vamos calibrar o diagnÃ³stico com as referÃªncias do seu mercado.</p>
+      <div class="niche-grid">
+        <button class="niche-btn" data-niche="clinica" onclick="selectNiche(this)">
+          <span class="niche-icon">ð¥</span>
+          <span class="niche-label">ClÃ­nicas e ConsultÃ³rios</span>
+        </button>
+        <button class="niche-btn" data-niche="seguros" onclick="selectNiche(this)">
+          <span class="niche-icon">ð¡ï¸</span>
+          <span class="niche-label">Corretoras de Seguros</span>
+        </button>
+        <button class="niche-btn" data-niche="imobiliaria" onclick="selectNiche(this)">
+          <span class="niche-icon">ð </span>
+          <span class="niche-label">ImobiliÃ¡rias</span>
+        </button>
+        <button class="niche-btn" data-niche="contabilidade" onclick="selectNiche(this)">
+          <span class="niche-icon">ð</span>
+          <span class="niche-label">Contabilidades</span>
+        </button>
+        <button class="niche-btn" data-niche="advocacia" onclick="selectNiche(this)">
+          <span class="niche-icon">âï¸</span>
+          <span class="niche-label">Advocacia</span>
+        </button>
+        <button class="niche-btn" data-niche="hotel" onclick="selectNiche(this)">
+          <span class="niche-icon">ð¨</span>
+          <span class="niche-label">Hotel / Pousada</span>
+        </button>
+      </div>
+      <div class="step-nav">
+        <button class="btn-primary" id="btn-step1" onclick="goStep(2)" disabled>PrÃ³ximo â</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Ticket + Volume -->
+  <div class="step" id="step-2">
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h2 class="step-title">Quanto vale cada cliente novo?</h2>
+      <p class="step-sub">Pense no valor mÃ©dio de um novo cliente nos primeiros 3 meses.</p>
+      <div class="slider-value" id="ticket-display">R$ 3.000</div>
+      <div class="slider-wrap">
+        <input type="range" id="ticket-slider" min="500" max="50000" step="500" value="3000"
+          oninput="updateTicket(this.value)">
+        <div class="slider-labels">
+          <span>R$ 500</span><span>R$ 50.000+</span>
+        </div>
+      </div>
+
+      <div style="height:20px"></div>
+      <h2 class="step-title" style="font-size:16px">Quantos leads chegam por mÃªs?</h2>
+      <p class="step-sub" style="margin-top:4px">Inclua todos os canais: WhatsApp, Instagram, indicaÃ§Ã£o, site.</p>
+      <div class="slider-value" id="leads-display">40 leads</div>
+      <div class="slider-wrap">
+        <input type="range" id="leads-slider" min="5" max="500" step="5" value="40"
+          oninput="updateLeads(this.value)">
+        <div class="slider-labels"><span>5</span><span>500+</span></div>
+      </div>
+
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(1)">â</button>
+        <button class="btn-primary" onclick="goStep(3)">PrÃ³ximo â</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Dores -->
+  <div class="step" id="step-3">
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h2 class="step-title">Onde estÃ¡ o maior gargalo hoje?</h2>
+      <p class="step-sub">Selecione atÃ© 3 problemas que mais travam o seu comercial.</p>
+      <div class="chip-grid" id="pain-grid">
+        <button class="chip" onclick="toggleChip(this)">Demora para responder leads</button>
+        <button class="chip" onclick="toggleChip(this)">NÃ£o faÃ§o follow-up consistente</button>
+        <button class="chip" onclick="toggleChip(this)">Leads somem sem comprar</button>
+        <button class="chip" onclick="toggleChip(this)">Equipe sem tempo para prospectar</button>
+        <button class="chip" onclick="toggleChip(this)">Falta de agendamento automÃ¡tico</button>
+        <button class="chip" onclick="toggleChip(this)">Dificuldade de qualificar leads</button>
+        <button class="chip" onclick="toggleChip(this)">Alto custo de vendedor humano</button>
+        <button class="chip" onclick="toggleChip(this)">Atendimento fora do horÃ¡rio comercial</button>
+      </div>
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(2)">â</button>
+        <button class="btn-primary" onclick="goStep(4)" id="btn-step3">PrÃ³ximo â</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Captura -->
+  <div class="step" id="step-4">
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h2 class="step-title">Para onde enviamos o relatÃ³rio?</h2>
+      <p class="step-sub">Seu diagnÃ³stico completo + plano de aÃ§Ã£o serÃ¡ enviado pelo WhatsApp.</p>
+      <div class="input-group">
+        <label>Nome completo</label>
+        <input type="text" id="nome" placeholder="Seu nome">
+      </div>
+      <div class="input-group">
+        <label>WhatsApp (com DDD)</label>
+        <input type="tel" id="whatsapp" placeholder="(11) 99999-9999" oninput="formatPhone(this)">
+      </div>
+      <div class="input-group">
+        <label>E-mail (opcional)</label>
+        <input type="email" id="email" placeholder="seu@email.com">
+      </div>
+      <div class="step-nav">
+        <button class="btn-back" onclick="goStep(3)">â</button>
+        <button class="btn-primary" onclick="calcResult()" id="btn-resultado">Ver meu diagnÃ³stico</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Resultado -->
+  <div class="step" id="step-5">
+    <!-- Resultado principal -->
+    <div class="result-card">
+      <div class="result-label">ð¸ Perda estimada mensal</div>
+      <div class="result-value" id="res-perda">R$ 0</div>
+      <div class="result-sub" id="res-sub">Baseado no seu perfil de operaÃ§Ã£o comercial</div>
+    </div>
+
+    <div class="result-breakdown">
+      <div class="breakdown-row">
+        <span class="breakdown-label">Leads perdidos por demora no atendimento</span>
+        <span class="breakdown-val" id="res-demora">â</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Oportunidades sem follow-up</span>
+        <span class="breakdown-val" id="res-followup">â</span>
+      </div>
+      <div class="breakdown-row">
+        <span class="breakdown-label">Custo de operaÃ§Ã£o manual evitÃ¡vel</span>
+        <span class="breakdown-val" id="res-custo">â</span>
+      </div>
+    </div>
+
+    <!-- SimulaÃ§Ã£o -->
+    <div class="sim-trigger">
+      <h3>ð¤ Teste o atendimento IA ao vivo</h3>
+      <p>Simule como a IA da TECX atenderia um cliente do seu segmento â agora mesmo, sem cadastro adicional.</p>
+      <div class="sim-btns">
+        <button class="sim-btn-chat" onclick="openWA('chat')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.472 3.527C18.21 1.264 15.208 0 12.011 0 5.444 0 .106 5.337.1 11.904c0 2.098.547 4.148 1.588 5.955L0 24l6.303-1.654a11.9 11.9 0 005.698 1.449h.005c6.56 0 11.898-5.338 11.904-11.905.003-3.18-1.235-6.17-3.438-8.363z"/></svg>
+          Chat
+        </button>
+        <button class="sim-btn-call" onclick="openWA('call')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          LigaÃ§Ã£o IA
+        </button>
+      </div>
+    </div>
+
+    <div style="height: 20px"></div>
+    <a href="https://wa.me/5511999999999?text=Quero+conhecer+a+TECX+Systems" target="_blank" class="btn-primary">
+      Falar com especialista â
+    </a>
+    <button class="btn-secondary" onclick="goStep(1)">Refazer diagnÃ³stico</button>
+  </div>
+
+</main>
+
+<!-- ââââââââââââââââââââââââââââââââââââââ
+     WHATSAPP SIMULATION OVERLAY
+ââââââââââââââââââââââââââââââââââââââ -->
+<div class="wa-overlay" id="wa-overlay" onclick="closeWAifBackdrop(event)">
+  <div class="wa-panel" id="wa-panel">
+
+    <!-- WA Header -->
+    <div class="wa-header">
+      <button class="wa-close" onclick="closeWA()">â¹</button>
+      <div class="wa-avatar">
+        <img src="https://api.dicebear.com/8.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4&hairColor=724133&eyes=happy&mouth=smile&accessories=prescription02&clothing=blazerAndShirt" alt="Atendente">
+      </div>
+      <div class="wa-contact-info">
+        <div class="wa-contact-name" id="wa-agent-name">Ana â Atendente IA</div>
+        <div class="wa-contact-status" id="wa-agent-status">online</div>
+      </div>
+      <button class="wa-call-btn" onclick="switchTab('call')" title="Ligar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      </button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="wa-tabs">
+      <div class="wa-tab active" id="tab-chat" onclick="switchTab('chat')">ð¬ Chat</div>
+      <div class="wa-tab" id="tab-call" onclick="switchTab('call')">ð LigaÃ§Ã£o IA</div>
+    </div>
+
+    <!-- CHAT TAB -->
+    <div class="wa-chat-tab" id="chat-tab">
+      <div class="wa-messages" id="wa-messages">
+        <div class="wa-date-sep">Hoje</div>
+      </div>
+      <div class="wa-limit-banner" id="limit-banner">
+        Essa foi uma prÃ©via do atendimento IA. Quer implementar isso na sua empresa?
+      </div>
+      <div class="cta-end" id="cta-end-chat">
+        <p>Viu como funciona? A IA da TECX atende 24h, agenda, qualifica e nunca deixa lead escapar.</p>
+        <a href="https://wa.me/5511999999999?text=Quero+implementar+IA+na+minha+empresa" target="_blank" class="btn-primary">Quero na minha empresa â</a>
+      </div>
+      <div class="wa-input-wrap" id="wa-input-wrap">
+        <textarea class="wa-input" id="wa-input" placeholder="Digite uma mensagem..." rows="1"
+          onkeydown="handleEnter(event)" oninput="autoResize(this)"></textarea>
+        <button class="wa-send-btn" id="wa-send" onclick="sendMessage()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CALL TAB -->
+    <div class="wa-call-tab" id="call-tab">
+      <div class="call-avatar-big">
+        <img src="https://api.dicebear.com/8.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4&hairColor=724133&eyes=happy&mouth=smile&accessories=prescription02&clothing=blazerAndShirt" alt="Atendente">
+      </div>
+      <div class="call-name">Ana â IA TECX</div>
+      <div class="call-sub" id="call-niche-label">Atendente do seu segmento</div>
+      <div class="call-info">
+        <p>A IA vai ligar para vocÃª simulando o <strong>atendimento que seus clientes receberiam</strong>. A conversa Ã© real â vocÃ  pode fazer perguntas, objeÃ§Ãµes, pedir informaÃ§Ãµes.</p>
+      </div>
+      <input type="tel" class="call-number-input" id="call-phone" placeholder="(11) 99999-9999" oninput="formatPhone(this)">
+      <button class="btn-call-green" id="btn-call" onclick="requestCall()">
+        ð Receber ligaÃ§Ã£o agora
+      </button>
+      <div class="call-status" id="call-status"></div>
+      <div class="call-alt">
+        Ou ligue direto: <a href="tel:+5511999999999">+55 (11) 9999-9999</a> e fale com a IA ao vivo
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// âââââââââââââââââââââââââââââââââââââââââââ
+//  STATE
+// âââââââââââââââââââââââââââââââââââââââââââ
+const state = {
+  niche: null,
+  nicheLabel: '',
+  ticket: 3000,
+  leads: 40,
+  pains: [],
+  nome: '',
+  whatsapp: '',
+  email: '',
+  msgCount: 0,
+  MAX_MSGS: 6
+};
+
+const NICHE_CONFIG = {
+  clinica: {
+    label: 'ClÃ­nica / ConsultÃ³rio',
+    agentName: 'Ana â Recepcionista IA',
+    greeting: 'ClÃ­nica SÃ£o Lucas, boa tarde! ð Como posso te ajudar?',
+    prompt: 'VocÃª Ã© Ana, recepcionista virtual de uma clÃ­nica mÃ©dica chamada ClÃ­nica SÃ£o Lucas. Atenda o usuÃ¡rio de forma calorosa, profissional e Ã¡gil como uma recepcionista real. VocÃª pode: agendar consultas (perguntar especialidade, nome, plano de saÃºde ou particular), confirmar disponibilidade (segunda a sexta 8h-18h, sÃ¡bado 8h-12h), informar sobre especialidades (clÃ­nica geral, cardiologia, ortopedia, dermatologia). Seja natural, curto e objetivo. Nunca quebre o personagem. MÃ¡x 2-3 frases por mensagem.',
+    callSub: 'SimulaÃ§Ã£o: recepcionista de clÃ­nica mÃ©dica'
+  },
+  seguros: {
+    label: 'Corretora de Seguros',
+    agentName: 'Ana â Corretora IA',
+    greeting: 'OlÃ¡! Aqui Ã© a Ana da Seguros Premium. Seja bem-vindo! ð Quer uma cotaÃ§Ã£o ou tem alguma dÃºvida sobre seu seguro?',
+    prompt: 'VocÃª Ã© Ana, atendente virtual de uma corretora de seguros chamada Seguros Premium. Atenda com profissionalismo e simpatia. VocÃª pode: cotar seguros de auto, vida e residencial (perguntar tipo, perfil, necessidade), explicar coberturas bÃ¡sicas, agendar visita de um corretor. Seja natural, objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'SimulaÃ§Ã£o: atendente de corretora de seguros'
+  },
+  imobiliaria: {
+    label: 'ImobiliÃ¡ria',
+    agentName: 'Ana â Corretora IA',
+    greeting: 'Oi! Aqui Ã© a Ana da ImÃ³vel Certo. ð  VocÃª estÃ¡ procurando imÃ³vel para comprar, alugar ou quer avaliar o seu?',
+    prompt: 'VocÃª Ã© Ana, atendente virtual de uma imobiliÃ¡ria chamada ImÃ³vel Certo. Atenda com simpatia e objetividade. Pode: perguntar se quer comprar/alugar/avaliar, coletar preferÃªncias (bairro, quartos, faixa de preÃ§o), agendar visita, informar sobre imÃ³veis disponÃ­veis genericamente. Seja natural, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'SimulaÃ§Ã£o: atendente de imobiliÃ¡ria'
+  },
+  contabilidade: {
+    label: 'Contabilidade',
+    agentName: 'Ana â Atendente ContÃ¡bil IA',
+    greeting: 'OlÃ¡! Aqui Ã© a Ana do EscritÃ³rio ContÃ¡bil Souza & Associados. ð Posso te ajudar com alguma questÃ£o fiscal, abertura de empresa ou regularizaÃ§Ã£o?',
+    prompt: 'VocÃª Ã© Ana, atendente virtual de um escritÃ³rio de contabilidade chamado Souza & Associados. Atenda com profissionalismo. Pode: tirar dÃºvidas gerais sobre MEI, Simples Nacional, abertura de empresa, agendar reuniÃ£o com um contador. NÃ£o dÃ  informaÃ§Ãµes fiscais especÃ­ficas sem dados do cliente. Seja objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'SimulaÃ§Ã£o: atendente de escritÃ³rio contÃ¡bil'
+  },
+  advocacia: {
+    label: 'Advocacia',
+    agentName: 'Ana â Recepcionista JurÃ­dica IA',
+    greeting: 'Boa tarde! Aqui Ã© a Ana, recepcionista do EscritÃ³rio Silva Advocacia. âï¸ Qual Ã¡rea jurÃ­dica vocÃª precisa de suporte hoje?',
+    prompt: 'VocÃª Ã© Ana, recepcionista virtual de um escritÃ³rio de advocacia chamado Silva Advocacia. Atenda com profissionalismo e empatia. Pode: identificar a Ã¡rea (trabalhista, cÃ­vel, famÃ­lia, criminal, empresarial), agendar consulta inicial, informar que a consulta inicial custa R$ 150. Nunca dÃª parecer jurÃ­dico. Seja objetivo, 2-3 frases. Nunca quebre o personagem.',
+    callSub: 'SimulaÃ§Ã£o: recepcionista de escritÃ³rio jurÃ­dico'
+  },
+  hotel: {
+    label: 'Hotel / Pousada',
+    agentName: 'Ana â Concierge IA',
+    greeting: 'OlÃ¡! ð¨ Bem-vindo Ã  Pousada Vista Bela! Sou a Ana, sua concierge virtual. Quer fazer uma reserva ou tem alguma dÃºvida?',
+    prompt: 'VocÃª Ã© Ana, concierge virtual da Pousada Vista Bela, um hotel boutique charmoso. Atenda com calor e hospitalidade. Pode: verificar disponibilidade (perguntar datas e nÂº de hÃ³spedes), informar diÃ¡rias (a partir de R$ 280/noite), descrever estrutura (piscina, cafÃ© da manhÃ£ incluso, estacionamento), fazer reserva coletando dados. Seja natural e acolhedora, 2-3 frases. Nunca quebre o personagem.',
+    callSub: 'SimulaÃ§Ã£o: concierge de hotel'
+  }
+};
+
+// âââââââââââââââââââââââââââââââââââââââââââ
+//  STEPS
+// âââââââââââââââââââââââââââââââââââââââââââ
+function goStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  const pct = Math.round((n / 4) * 100);
+  document.getElementById('progress-fill').style.width = (n <= 4 ? pct : 100) + '%';
+  document.getElementById('step-label').textContent = n <= 4 ? `Passo ${n} de 4` : 'DiagnÃ³stico concluÃ­do';
+  document.getElementById('step-pct').textContent = (n <= 4 ? pct : 100) + '%';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectNiche(btn) {
+  document.querySelectorAll('.niche-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  state.niche = btn.dataset.niche;
+  state.nicheLabel = NICHE_CONFIG[state.niche].label;
+  document.getElementById('btn-step1').disabled = false;
+}
+
+// Sliders
+function updateTicket(v) {
+  state.ticket = parseInt(v);
+  document.getElementById('ticket-display').textContent = 'R$ ' + parseInt(v).toLocaleString('pt-BR');
+  const pct = ((v - 500) / (50000 - 500)) * 100;
+  document.getElementById('ticket-slider').style.setProperty('--pct', pct + '%');
+}
+function updateLeads(v) {
+  state.leads = parseInt(v);
+  document.getElementById('leads-display').textContent = v + ' leads';
+  const pct = ((v - 5) / (500 - 5)) * 100;
+  document.getElementById('leads-slider').style.setProperty('--pct', pct + '%');
+}
+// Init slider pct
+updateTicket(3000); updateLeads(40);
+
+// Chips
+function toggleChip(btn) {
+  const sel = document.querySelectorAll('.chip.selected');
+  if (!btn.classList.contains('selected') && sel.length >= 3) return;
+  btn.classList.toggle('selected');
+  state.pains = Array.from(document.querySelectorAll('.chip.selected')).map(c => c.textContent);
+}
+
+function formatPhone(el) {
+  let v = el.value.replace(/\D/g, '').substring(0, 11);
+  if (v.length >= 7) v = `(${v.substring(0,2)}) ${v.substring(2,7)}-${v.substring(7)}`;
+  else if (v.length >= 3) v = `(${v.substring(0,2)}) ${v.substring(2)}`;
+  el.value = v;
+}
+
+// âââââââââââââââââââââââââââââââââââââââââââ
+//  RESULT CALCULATION
+// âââââââââââââââââââââââââââââââââââââââââââ
+function calcResult() {
+  state.nome = document.getElementById('nome').value.trim();
+  state.whatsapp = document.getElementById('whatsapp').value.trim();
+  if (!state.nome || !state.whatsapp) {
+    alert('Preencha seu nome e WhatsApp para ver o diagnÃ³stico.');
+    return;
+  }
+
+  // LÃ³gica de estimativa
+  const taxaConversao = 0.12; // mÃ©dia mercado
+  const perdaPorDemora = Math.round(state.leads * 0.35 * state.ticket * taxaConversao);
+  const perdaFollowup  = Math.round(state.leads * 0.25 * state.ticket * taxaConversao);
+  const custoManual    = Math.round(state.leads * 0.08 * state.ticket);
+  const totalPerda     = perdaPorDemora + perdaFollowup + custoManual;
+
+  const fmt = v => 'R$ ' + v.toLocaleString('pt-BR');
+  document.getElementById('res-perda').textContent = fmt(totalPerda);
+  document.getElementById('res-demora').textContent = fmt(perdaPorDemora);
+  document.getElementById('res-followup').textContent = fmt(perdaFollowup);
+  document.getElementById('res-custo').textContent = fmt(custoManual);
+  document.getElementById('res-sub').textContent =
+    `Baseado em ${state.leads} leads/mÃªs com ticket mÃ©dio de ${fmt(state.ticket)} â ${state.nicheLabel}`;
+
+  goStep(5);
+}
+
+// âââââââââââââââââââââââââââââââââââââââââââ
+//  WHATSAPP SIMULATION
+// âââââââââââââââââââââââââââââââââââââââââââ
+function openWA(tab) {
+  const cfg = NICHE_CONFIG[state.niche] || NICHE_CONFIG.clinica;
+  document.getElementById('wa-agent-name').textContent = cfg.agentName;
+  document.getElementById('call-niche-label').textContent = cfg.callSub;
+  // Fill phone from diagnosis
+  const diagPhone = document.getElementById('whatsapp').value;
+  if (diagPhone) document.getElementById('call-phone').value = diagPhone;
+
+  document.getElementById('wa-overlay').classList.add('open');
+  switchTab(tab);
+
+  if (tab === 'chat' && state.msgCount === 0) {
+    // Clear and start
+    const msgs = document.getElementById('wa-messages');
+    msgs.innerHTML = '<div class="wa-date-sep">Hoje</div>';
+    state.msgCount = 0;
+    // Send greeting after short delay
+    setTimeout(() => {
+      showTyping();
+      setTimeout(() => {
+        hideTyping();
+        addMessage('in', cfg.greeting);
+      }, 1200);
+    }, 500);
+  }
+}
+
+function closeWA() {
+  document.getElementById('wa-overlay').classList.remove('open');
+}
+function closeWAifBackdrop(e) {
+  if (e.target === document.getElementById('wa-overlay')) closeWA();
+}
+
+function switchTab(tab) {
+  document.getElementById('tab-chat').classList.toggle('active', tab === 'chat');
+  document.getElementById('tab-call').classList.toggle('active', tab === 'call');
+  document.getElementById('chat-tab').classList.toggle('hidden', tab !== 'chat');
+  document.getElementById('call-tab').classList.toggle('active', tab === 'call');
+}
+
+// Messages
+function getNow() {
+  return new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+}
+
+function addMessage(dir, text) {
+  const msgs = document.getElementById('wa-messages');
+  const div = document.createElement('div');
+  div.className = `wa-msg ${dir}`;
+  div.innerHTML = `<div class="wa-bubble">${text}<span class="wa-time">${getNow()}</span></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+let typingEl = null;
+function showTyping() {
+  const msgs = document.getElementById('wa-messages');
+  typingEl = document.createElement('div');
+  typingEl.className = 'wa-msg in';
+  typingEl.innerHTML = '<div class="typing-bubble visible wa-bubble"><div class="wa-typing"><span></span><span></span><span></span></div></div>';
+  msgs.appendChild(typingEl);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function hideTyping() {
+  if (typingEl) { typingEl.remove(); typingEl = null; }
+}
+
+function handleEnter(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+const chatHistory = [];
+
+async function sendMessage() {
+  const input = document.getElementById('wa-input');
+  const text = input.value.trim();
+  if (!text || state.msgCount >= state.MAX_MSGS) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  addMessage('out', text);
+  state.msgCount++;
+  chatHistory.push({ role: 'user', content: text });
+
+  if (state.msgCount >= state.MAX_MSGS) {
+    // Show CTA
+    document.getElementById('limit-banner').classList.add('show');
+    document.getElementById('cta-end-chat').classList.add('show');
+    document.getElementById('wa-input-wrap').style.display = 'none';
+    // Still respond to last message
+  }
+
+  document.getElementById('wa-send').disabled = true;
+  showTyping();
+
+  try {
+    const cfg = NICHE_CONFIG[state.niche] || NICHE_CONFIG.clinica;
+    const resp = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        systemPrompt: cfg.prompt,
+        messages: chatHistory,
+        niche: state.niche,
+        nicheLabel: state.nicheLabel
+      })
+    });
+    const data = await resp.json();
+    hideTyping();
+    const reply = data.reply || 'Desculpe, tive um problema tÃ©cnico. Pode repetir?';
+    addMessage('in', reply);
+    chatHistory.push({ role: 'assistant', content: reply });
+  } catch(e) {
+    hideTyping();
+    addMessage('in', 'Ops! ConexÃ£o instÃ¡vel. Tente novamente em instantes.');
+  }
+
+  document.getElementById('wa-send').disabled = false;
+  document.getElementById('wa-input').focus();
+}
+
+// âââââââââââââââââââââââââââââââââââââââââââ
+//  CLICK-TO-CALL
+// âââââââââââââââââââââââââââââââââââââââââââ
+async function requestCall() {
+  const phone = document.getElementById('call-phone').value.replace(/\D/g,'');
+  if (phone.length < 10) {
+    alert('Digite seu nÃºmero com DDD para receber a ligaÃ§Ã£o.');
+    return;
+  }
+
+  const btn = document.getElementById('btn-call');
+  const status = document.getElementById('call-status');
+  btn.disabled = true;
+  btn.textContent = 'â³ Iniciando ligaÃ§Ã£o...';
+  status.classList.remove('show');
+
+  try {
+    const resp = await fetch('/api/call', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone, niche: state.niche, nome: state.nome })
+    });
+    const data = await resp.json();
+    if (data.success) {
+      status.textContent = 'â LigaÃ§Ã£o iniciada! Atenda seu telefone em instantes.';
+      status.classList.add('show');
+      btn.textContent = 'ð LigaÃ§Ã£o em andamento...';
+    } else {
+      throw new Error(data.error || 'Erro');
+    }
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = 'ð Receber ligaÃ§Ã£o agora';
+    status.textContent = 'â ï¸ NÃ£o foi possÃ­vel iniciar. Ligue diretamente: (11) 9999-9999';
+    status.classList.add('show');
+  }
+}
+</script>
+</body>
+</html>
