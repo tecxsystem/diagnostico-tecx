@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DiagnÃ³stico Comercial Gratuito â TECX Systems</title>
+<title>Diagnóstico Comercial Gratuito — TECX Systems</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -51,7 +51,7 @@
     min-height: 100vh;
   }
 
-  /* ââ HEADER ââ */
+  /* ── HEADER ── */
   .header {
     background: var(--accent);
     padding: 14px max(16px, env(safe-area-inset-left,0px));
@@ -69,7 +69,7 @@
   .header h1 { color: #fff; font-size: 15px; font-weight: 700; }
   .header p { color: rgba(255,255,255,0.75); font-size: 11px; }
 
-  /* ââ MAIN WRAPPER ââ */
+  /* ── MAIN WRAPPER ── */
   .main {
     max-width: 680px;
     margin: 0 auto;
@@ -77,7 +77,7 @@
     padding-bottom: 40px;
   }
 
-  /* ââ PROGRESS BAR ââ */
+  /* ── PROGRESS BAR ── */
   .progress-wrap { margin-bottom: 24px; }
   .progress-label {
     display: flex; justify-content: space-between;
@@ -91,7 +91,7 @@
     border-radius: 99px; transition: width .4s ease;
   }
 
-  /* ââ STEP CARD ââ */
+  /* ── STEP CARD ── */
   .step-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -112,7 +112,7 @@
     font-size: 13px; color: var(--fg2); margin-bottom: 20px; line-height: 1.5;
   }
 
-  /* ââ NICHE GRID ââ */
+  /* ── NICHE GRID ── */
   .niche-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -135,7 +135,7 @@
   .niche-icon { font-size: 22px; flex-shrink: 0; }
   .niche-label { font-size: 13px; font-weight: 600; line-height: 1.3; }
 
-  /* ââ SLIDER ââ */
+  /* ── SLIDER ── */
   .slider-wrap { padding: 4px 0 16px; }
   input[type=range] {
     width: 100%; -webkit-appearance: none; appearance: none;
@@ -158,7 +158,7 @@
     color: var(--accent); margin-bottom: 8px;
   }
 
-  /* ââ PAIN CHIPS ââ */
+  /* ── PAIN CHIPS ── */
   .chip-grid { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip {
     border: 1.5px solid var(--border); border-radius: 99px;
@@ -170,7 +170,7 @@
   .chip:hover { border-color: var(--accent); }
   .chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
 
-  /* ââ INPUTS ââ */
+  /* ── INPUTS ── */
   .input-group { margin-bottom: 14px; }
   .input-group label { display: block; font-size: 12px; font-weight: 600; color: var(--fg2); margin-bottom: 6px; }
   .input-group input {
@@ -181,7 +181,7 @@
   }
   .input-group input:focus { border-color: var(--accent); }
 
-  /* ââ RESULT CARD ââ */
+  /* ── RESULT CARD ── */
   .result-card {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
     border-radius: 16px; padding: 28px 24px; color: #fff; margin-bottom: 16px;
@@ -201,7 +201,7 @@
   .breakdown-label { color: var(--fg2); }
   .breakdown-val { font-weight: 700; color: var(--red); }
 
-  /* ââ BUTTONS ââ */
+  /* ── BUTTONS ── */
   .btn-primary {
     display: block; width: 100%; padding: 15px;
     background: var(--accent); color: #fff;
@@ -221,7 +221,7 @@
   }
   .btn-secondary:hover { border-color: var(--fg2); color: var(--fg); }
 
-  /* ââ SIMULATION TRIGGER ââ */
+  /* ── SIMULATION TRIGGER ── */
   .sim-trigger {
     background: var(--card); border: 2px solid var(--accent);
     border-radius: 16px; padding: 20px 20px;
@@ -247,9 +247,9 @@
   }
   .sim-btn-call:hover { background: #6d28d9; transform: translateY(-1px); }
 
-  /* ââââââââââââââââââââââââââââââââââââââ
+  /* ══════════════════════════════════════
      WHATSAPP SIMULATION PANEL
-  ââââââââââââââââââââââââââââââââââââââ */
+  ══════════════════════════════════════ */
   .wa-overlay {
     position: fixed; inset: 0; z-index: 1000;
     background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
@@ -298,7 +298,7 @@
   }
   .wa-call-btn:hover { background: rgba(255,255,255,.1); }
 
-  /* WA tabs (Chat / LigaÃ§Ã£o) */
+  /* WA tabs (Chat / Ligação) */
   .wa-tabs {
     background: var(--wa-header2);
     display: flex;
@@ -350,7 +350,7 @@
     font-size: 10px; color: var(--fg2); float: right;
     margin-left: 8px; margin-top: 2px; white-space: nowrap;
   }
-  .wa-msg.out .wa-time::after { content: ' ââ'; color: #53bdeb; }
+  .wa-msg.out .wa-time::after { content: ' ✓✓'; color: #53bdeb; }
 
   /* Typing indicator */
   .wa-typing {
@@ -400,7 +400,7 @@
   }
   .wa-limit-banner.show { display: block; }
 
-  /* ââ CALL TAB ââ */
+  /* ── CALL TAB ── */
   .wa-call-tab {
     display: none; flex-direction: column; align-items: center;
     justify-content: center; flex: 1; padding: 32px 24px; gap: 16px;
@@ -452,7 +452,7 @@
   }
   .call-status.show { display: block; }
 
-  /* ââ CTA END ââ */
+  /* ── CTA END ── */
   .cta-end {
     background: var(--card); border: 2px solid var(--accent);
     border-radius: 12px; padding: 16px; margin-top: 12px;
@@ -462,11 +462,11 @@
   .cta-end p { font-size: 13px; color: var(--fg2); margin-bottom: 12px; }
   .cta-end .btn-primary { font-size: 14px; padding: 12px; }
 
-  /* ââ STEP VISIBILITY ââ */
+  /* ── STEP VISIBILITY ── */
   .step { display: none; }
   .step.active { display: block; }
 
-  /* ââ STEP NAV ââ */
+  /* ── STEP NAV ── */
   .step-nav { display: flex; gap: 10px; margin-top: 20px; }
   .step-nav .btn-primary { flex: 1; }
   .btn-back {
@@ -507,36 +507,36 @@
   <div class="step active" id="step-1">
     <div class="step-card">
       <div class="step-num">1</div>
-      <h2 class="step-title">Qual Ã© o seu segmento?</h2>
-      <p class="step-sub">Vamos calibrar o diagnÃ³stico com as referÃªncias do seu mercado.</p>
+      <h2 class="step-title">Qual é o seu segmento?</h2>
+      <p class="step-sub">Vamos calibrar o diagnóstico com as referências do seu mercado.</p>
       <div class="niche-grid">
         <button class="niche-btn" data-niche="clinica" onclick="selectNiche(this)">
-          <span class="niche-icon">ð¥</span>
-          <span class="niche-label">ClÃ­nicas e ConsultÃ³rios</span>
+          <span class="niche-icon">🏥</span>
+          <span class="niche-label">Clínicas e Consultórios</span>
         </button>
         <button class="niche-btn" data-niche="seguros" onclick="selectNiche(this)">
-          <span class="niche-icon">ð¡ï¸</span>
+          <span class="niche-icon">🛡️</span>
           <span class="niche-label">Corretoras de Seguros</span>
         </button>
         <button class="niche-btn" data-niche="imobiliaria" onclick="selectNiche(this)">
-          <span class="niche-icon">ð </span>
-          <span class="niche-label">ImobiliÃ¡rias</span>
+          <span class="niche-icon">🏠</span>
+          <span class="niche-label">Imobiliárias</span>
         </button>
         <button class="niche-btn" data-niche="contabilidade" onclick="selectNiche(this)">
-          <span class="niche-icon">ð</span>
+          <span class="niche-icon">📊</span>
           <span class="niche-label">Contabilidades</span>
         </button>
         <button class="niche-btn" data-niche="advocacia" onclick="selectNiche(this)">
-          <span class="niche-icon">âï¸</span>
+          <span class="niche-icon">⚖️</span>
           <span class="niche-label">Advocacia</span>
         </button>
         <button class="niche-btn" data-niche="hotel" onclick="selectNiche(this)">
-          <span class="niche-icon">ð¨</span>
+          <span class="niche-icon">🏨</span>
           <span class="niche-label">Hotel / Pousada</span>
         </button>
       </div>
       <div class="step-nav">
-        <button class="btn-primary" id="btn-step1" onclick="goStep(2)" disabled>PrÃ³ximo â</button>
+        <button class="btn-primary" id="btn-step1" onclick="goStep(2)" disabled>Próximo →</button>
       </div>
     </div>
   </div>
@@ -546,7 +546,7 @@
     <div class="step-card">
       <div class="step-num">2</div>
       <h2 class="step-title">Quanto vale cada cliente novo?</h2>
-      <p class="step-sub">Pense no valor mÃ©dio de um novo cliente nos primeiros 3 meses.</p>
+      <p class="step-sub">Pense no valor médio de um novo cliente nos primeiros 3 meses.</p>
       <div class="slider-value" id="ticket-display">R$ 3.000</div>
       <div class="slider-wrap">
         <input type="range" id="ticket-slider" min="500" max="50000" step="500" value="3000"
@@ -557,8 +557,8 @@
       </div>
 
       <div style="height:20px"></div>
-      <h2 class="step-title" style="font-size:16px">Quantos leads chegam por mÃªs?</h2>
-      <p class="step-sub" style="margin-top:4px">Inclua todos os canais: WhatsApp, Instagram, indicaÃ§Ã£o, site.</p>
+      <h2 class="step-title" style="font-size:16px">Quantos leads chegam por mês?</h2>
+      <p class="step-sub" style="margin-top:4px">Inclua todos os canais: WhatsApp, Instagram, indicação, site.</p>
       <div class="slider-value" id="leads-display">40 leads</div>
       <div class="slider-wrap">
         <input type="range" id="leads-slider" min="5" max="500" step="5" value="40"
@@ -567,8 +567,8 @@
       </div>
 
       <div class="step-nav">
-        <button class="btn-back" onclick="goStep(1)">â</button>
-        <button class="btn-primary" onclick="goStep(3)">PrÃ³ximo â</button>
+        <button class="btn-back" onclick="goStep(1)">←</button>
+        <button class="btn-primary" onclick="goStep(3)">Próximo →</button>
       </div>
     </div>
   </div>
@@ -577,21 +577,21 @@
   <div class="step" id="step-3">
     <div class="step-card">
       <div class="step-num">3</div>
-      <h2 class="step-title">Onde estÃ¡ o maior gargalo hoje?</h2>
-      <p class="step-sub">Selecione atÃ© 3 problemas que mais travam o seu comercial.</p>
+      <h2 class="step-title">Onde está o maior gargalo hoje?</h2>
+      <p class="step-sub">Selecione até 3 problemas que mais travam o seu comercial.</p>
       <div class="chip-grid" id="pain-grid">
         <button class="chip" onclick="toggleChip(this)">Demora para responder leads</button>
-        <button class="chip" onclick="toggleChip(this)">NÃ£o faÃ§o follow-up consistente</button>
+        <button class="chip" onclick="toggleChip(this)">Não faço follow-up consistente</button>
         <button class="chip" onclick="toggleChip(this)">Leads somem sem comprar</button>
         <button class="chip" onclick="toggleChip(this)">Equipe sem tempo para prospectar</button>
-        <button class="chip" onclick="toggleChip(this)">Falta de agendamento automÃ¡tico</button>
+        <button class="chip" onclick="toggleChip(this)">Falta de agendamento automático</button>
         <button class="chip" onclick="toggleChip(this)">Dificuldade de qualificar leads</button>
         <button class="chip" onclick="toggleChip(this)">Alto custo de vendedor humano</button>
-        <button class="chip" onclick="toggleChip(this)">Atendimento fora do horÃ¡rio comercial</button>
+        <button class="chip" onclick="toggleChip(this)">Atendimento fora do horário comercial</button>
       </div>
       <div class="step-nav">
-        <button class="btn-back" onclick="goStep(2)">â</button>
-        <button class="btn-primary" onclick="goStep(4)" id="btn-step3">PrÃ³ximo â</button>
+        <button class="btn-back" onclick="goStep(2)">←</button>
+        <button class="btn-primary" onclick="goStep(4)" id="btn-step3">Próximo →</button>
       </div>
     </div>
   </div>
@@ -600,8 +600,8 @@
   <div class="step" id="step-4">
     <div class="step-card">
       <div class="step-num">4</div>
-      <h2 class="step-title">Para onde enviamos o relatÃ³rio?</h2>
-      <p class="step-sub">Seu diagnÃ³stico completo + plano de aÃ§Ã£o serÃ¡ enviado pelo WhatsApp.</p>
+      <h2 class="step-title">Para onde enviamos o relatório?</h2>
+      <p class="step-sub">Seu diagnóstico completo + plano de ação será enviado pelo WhatsApp.</p>
       <div class="input-group">
         <label>Nome completo</label>
         <input type="text" id="nome" placeholder="Seu nome">
@@ -615,8 +615,8 @@
         <input type="email" id="email" placeholder="seu@email.com">
       </div>
       <div class="step-nav">
-        <button class="btn-back" onclick="goStep(3)">â</button>
-        <button class="btn-primary" onclick="calcResult()" id="btn-resultado">Ver meu diagnÃ³stico</button>
+        <button class="btn-back" onclick="goStep(3)">←</button>
+        <button class="btn-primary" onclick="calcResult()" id="btn-resultado">Ver meu diagnóstico</button>
       </div>
     </div>
   </div>
@@ -625,30 +625,30 @@
   <div class="step" id="step-5">
     <!-- Resultado principal -->
     <div class="result-card">
-      <div class="result-label">ð¸ Perda estimada mensal</div>
+      <div class="result-label">💸 Perda estimada mensal</div>
       <div class="result-value" id="res-perda">R$ 0</div>
-      <div class="result-sub" id="res-sub">Baseado no seu perfil de operaÃ§Ã£o comercial</div>
+      <div class="result-sub" id="res-sub">Baseado no seu perfil de operação comercial</div>
     </div>
 
     <div class="result-breakdown">
       <div class="breakdown-row">
         <span class="breakdown-label">Leads perdidos por demora no atendimento</span>
-        <span class="breakdown-val" id="res-demora">â</span>
+        <span class="breakdown-val" id="res-demora">—</span>
       </div>
       <div class="breakdown-row">
         <span class="breakdown-label">Oportunidades sem follow-up</span>
-        <span class="breakdown-val" id="res-followup">â</span>
+        <span class="breakdown-val" id="res-followup">—</span>
       </div>
       <div class="breakdown-row">
-        <span class="breakdown-label">Custo de operaÃ§Ã£o manual evitÃ¡vel</span>
-        <span class="breakdown-val" id="res-custo">â</span>
+        <span class="breakdown-label">Custo de operação manual evitável</span>
+        <span class="breakdown-val" id="res-custo">—</span>
       </div>
     </div>
 
-    <!-- SimulaÃ§Ã£o -->
+    <!-- Simulação -->
     <div class="sim-trigger">
-      <h3>ð¤ Teste o atendimento IA ao vivo</h3>
-      <p>Simule como a IA da TECX atenderia um cliente do seu segmento â agora mesmo, sem cadastro adicional.</p>
+      <h3>🤖 Teste o atendimento IA ao vivo</h3>
+      <p>Simule como a IA da TECX atenderia um cliente do seu segmento — agora mesmo, sem cadastro adicional.</p>
       <div class="sim-btns">
         <button class="sim-btn-chat" onclick="openWA('chat')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.472 3.527C18.21 1.264 15.208 0 12.011 0 5.444 0 .106 5.337.1 11.904c0 2.098.547 4.148 1.588 5.955L0 24l6.303-1.654a11.9 11.9 0 005.698 1.449h.005c6.56 0 11.898-5.338 11.904-11.905.003-3.18-1.235-6.17-3.438-8.363z"/></svg>
@@ -656,34 +656,34 @@
         </button>
         <button class="sim-btn-call" onclick="openWA('call')">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-          LigaÃ§Ã£o IA
+          Ligação IA
         </button>
       </div>
     </div>
 
     <div style="height: 20px"></div>
     <a href="https://wa.me/5511999999999?text=Quero+conhecer+a+TECX+Systems" target="_blank" class="btn-primary">
-      Falar com especialista â
+      Falar com especialista →
     </a>
-    <button class="btn-secondary" onclick="goStep(1)">Refazer diagnÃ³stico</button>
+    <button class="btn-secondary" onclick="goStep(1)">Refazer diagnóstico</button>
   </div>
 
 </main>
 
-<!-- ââââââââââââââââââââââââââââââââââââââ
+<!-- ══════════════════════════════════════
      WHATSAPP SIMULATION OVERLAY
-ââââââââââââââââââââââââââââââââââââââ -->
+══════════════════════════════════════ -->
 <div class="wa-overlay" id="wa-overlay" onclick="closeWAifBackdrop(event)">
   <div class="wa-panel" id="wa-panel">
 
     <!-- WA Header -->
     <div class="wa-header">
-      <button class="wa-close" onclick="closeWA()">â¹</button>
+      <button class="wa-close" onclick="closeWA()">‹</button>
       <div class="wa-avatar">
         <img src="https://api.dicebear.com/8.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4&hairColor=724133&eyes=happy&mouth=smile&accessories=prescription02&clothing=blazerAndShirt" alt="Atendente">
       </div>
       <div class="wa-contact-info">
-        <div class="wa-contact-name" id="wa-agent-name">Ana â Atendente IA</div>
+        <div class="wa-contact-name" id="wa-agent-name">Ana — Atendente IA</div>
         <div class="wa-contact-status" id="wa-agent-status">online</div>
       </div>
       <button class="wa-call-btn" onclick="switchTab('call')" title="Ligar">
@@ -693,8 +693,8 @@
 
     <!-- Tabs -->
     <div class="wa-tabs">
-      <div class="wa-tab active" id="tab-chat" onclick="switchTab('chat')">ð¬ Chat</div>
-      <div class="wa-tab" id="tab-call" onclick="switchTab('call')">ð LigaÃ§Ã£o IA</div>
+      <div class="wa-tab active" id="tab-chat" onclick="switchTab('chat')">💬 Chat</div>
+      <div class="wa-tab" id="tab-call" onclick="switchTab('call')">📞 Ligação IA</div>
     </div>
 
     <!-- CHAT TAB -->
@@ -703,11 +703,11 @@
         <div class="wa-date-sep">Hoje</div>
       </div>
       <div class="wa-limit-banner" id="limit-banner">
-        Essa foi uma prÃ©via do atendimento IA. Quer implementar isso na sua empresa?
+        Essa foi uma prévia do atendimento IA. Quer implementar isso na sua empresa?
       </div>
       <div class="cta-end" id="cta-end-chat">
         <p>Viu como funciona? A IA da TECX atende 24h, agenda, qualifica e nunca deixa lead escapar.</p>
-        <a href="https://wa.me/5511999999999?text=Quero+implementar+IA+na+minha+empresa" target="_blank" class="btn-primary">Quero na minha empresa â</a>
+        <a href="https://wa.me/5511999999999?text=Quero+implementar+IA+na+minha+empresa" target="_blank" class="btn-primary">Quero na minha empresa →</a>
       </div>
       <div class="wa-input-wrap" id="wa-input-wrap">
         <textarea class="wa-input" id="wa-input" placeholder="Digite uma mensagem..." rows="1"
@@ -723,14 +723,14 @@
       <div class="call-avatar-big">
         <img src="https://api.dicebear.com/8.x/avataaars/svg?seed=Ana&backgroundColor=b6e3f4&hairColor=724133&eyes=happy&mouth=smile&accessories=prescription02&clothing=blazerAndShirt" alt="Atendente">
       </div>
-      <div class="call-name">Ana â IA TECX</div>
+      <div class="call-name">Ana — IA TECX</div>
       <div class="call-sub" id="call-niche-label">Atendente do seu segmento</div>
       <div class="call-info">
-        <p>A IA vai ligar para vocÃª simulando o <strong>atendimento que seus clientes receberiam</strong>. A conversa Ã© real â vocÃ  pode fazer perguntas, objeÃ§Ãµes, pedir informaÃ§Ãµes.</p>
+        <p>A IA vai ligar para você simulando o <strong>atendimento que seus clientes receberiam</strong>. A conversa é real — vocà pode fazer perguntas, objeções, pedir informações.</p>
       </div>
       <input type="tel" class="call-number-input" id="call-phone" placeholder="(11) 99999-9999" oninput="formatPhone(this)">
       <button class="btn-call-green" id="btn-call" onclick="requestCall()">
-        ð Receber ligaÃ§Ã£o agora
+        📞 Receber ligação agora
       </button>
       <div class="call-status" id="call-status"></div>
       <div class="call-alt">
@@ -742,9 +742,9 @@
 </div>
 
 <script>
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 //  STATE
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 const state = {
   niche: null,
   nicheLabel: '',
@@ -760,58 +760,58 @@ const state = {
 
 const NICHE_CONFIG = {
   clinica: {
-    label: 'ClÃ­nica / ConsultÃ³rio',
-    agentName: 'Ana â Recepcionista IA',
-    greeting: 'ClÃ­nica SÃ£o Lucas, boa tarde! ð Como posso te ajudar?',
-    prompt: 'VocÃª Ã© Ana, recepcionista virtual de uma clÃ­nica mÃ©dica chamada ClÃ­nica SÃ£o Lucas. Atenda o usuÃ¡rio de forma calorosa, profissional e Ã¡gil como uma recepcionista real. VocÃª pode: agendar consultas (perguntar especialidade, nome, plano de saÃºde ou particular), confirmar disponibilidade (segunda a sexta 8h-18h, sÃ¡bado 8h-12h), informar sobre especialidades (clÃ­nica geral, cardiologia, ortopedia, dermatologia). Seja natural, curto e objetivo. Nunca quebre o personagem. MÃ¡x 2-3 frases por mensagem.',
-    callSub: 'SimulaÃ§Ã£o: recepcionista de clÃ­nica mÃ©dica'
+    label: 'Clínica / Consultório',
+    agentName: 'Ana — Recepcionista IA',
+    greeting: 'Clínica São Lucas, boa tarde! 😊 Como posso te ajudar?',
+    prompt: 'Você é Ana, recepcionista virtual de uma clínica médica chamada Clínica São Lucas. Atenda o usuário de forma calorosa, profissional e ágil como uma recepcionista real. Você pode: agendar consultas (perguntar especialidade, nome, plano de saúde ou particular), confirmar disponibilidade (segunda a sexta 8h-18h, sábado 8h-12h), informar sobre especialidades (clínica geral, cardiologia, ortopedia, dermatologia). Seja natural, curto e objetivo. Nunca quebre o personagem. Máx 2-3 frases por mensagem.',
+    callSub: 'Simulação: recepcionista de clínica médica'
   },
   seguros: {
     label: 'Corretora de Seguros',
-    agentName: 'Ana â Corretora IA',
-    greeting: 'OlÃ¡! Aqui Ã© a Ana da Seguros Premium. Seja bem-vindo! ð Quer uma cotaÃ§Ã£o ou tem alguma dÃºvida sobre seu seguro?',
-    prompt: 'VocÃª Ã© Ana, atendente virtual de uma corretora de seguros chamada Seguros Premium. Atenda com profissionalismo e simpatia. VocÃª pode: cotar seguros de auto, vida e residencial (perguntar tipo, perfil, necessidade), explicar coberturas bÃ¡sicas, agendar visita de um corretor. Seja natural, objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
-    callSub: 'SimulaÃ§Ã£o: atendente de corretora de seguros'
+    agentName: 'Ana — Corretora IA',
+    greeting: 'Olá! Aqui é a Ana da Seguros Premium. Seja bem-vindo! 😊 Quer uma cotação ou tem alguma dúvida sobre seu seguro?',
+    prompt: 'Você é Ana, atendente virtual de uma corretora de seguros chamada Seguros Premium. Atenda com profissionalismo e simpatia. Você pode: cotar seguros de auto, vida e residencial (perguntar tipo, perfil, necessidade), explicar coberturas básicas, agendar visita de um corretor. Seja natural, objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'Simulação: atendente de corretora de seguros'
   },
   imobiliaria: {
-    label: 'ImobiliÃ¡ria',
-    agentName: 'Ana â Corretora IA',
-    greeting: 'Oi! Aqui Ã© a Ana da ImÃ³vel Certo. ð  VocÃª estÃ¡ procurando imÃ³vel para comprar, alugar ou quer avaliar o seu?',
-    prompt: 'VocÃª Ã© Ana, atendente virtual de uma imobiliÃ¡ria chamada ImÃ³vel Certo. Atenda com simpatia e objetividade. Pode: perguntar se quer comprar/alugar/avaliar, coletar preferÃªncias (bairro, quartos, faixa de preÃ§o), agendar visita, informar sobre imÃ³veis disponÃ­veis genericamente. Seja natural, 2-3 frases por mensagem. Nunca quebre o personagem.',
-    callSub: 'SimulaÃ§Ã£o: atendente de imobiliÃ¡ria'
+    label: 'Imobiliária',
+    agentName: 'Ana — Corretora IA',
+    greeting: 'Oi! Aqui é a Ana da Imóvel Certo. 🏠 Você está procurando imóvel para comprar, alugar ou quer avaliar o seu?',
+    prompt: 'Você é Ana, atendente virtual de uma imobiliária chamada Imóvel Certo. Atenda com simpatia e objetividade. Pode: perguntar se quer comprar/alugar/avaliar, coletar preferências (bairro, quartos, faixa de preço), agendar visita, informar sobre imóveis disponíveis genericamente. Seja natural, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'Simulação: atendente de imobiliária'
   },
   contabilidade: {
     label: 'Contabilidade',
-    agentName: 'Ana â Atendente ContÃ¡bil IA',
-    greeting: 'OlÃ¡! Aqui Ã© a Ana do EscritÃ³rio ContÃ¡bil Souza & Associados. ð Posso te ajudar com alguma questÃ£o fiscal, abertura de empresa ou regularizaÃ§Ã£o?',
-    prompt: 'VocÃª Ã© Ana, atendente virtual de um escritÃ³rio de contabilidade chamado Souza & Associados. Atenda com profissionalismo. Pode: tirar dÃºvidas gerais sobre MEI, Simples Nacional, abertura de empresa, agendar reuniÃ£o com um contador. NÃ£o dÃ  informaÃ§Ãµes fiscais especÃ­ficas sem dados do cliente. Seja objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
-    callSub: 'SimulaÃ§Ã£o: atendente de escritÃ³rio contÃ¡bil'
+    agentName: 'Ana — Atendente Contábil IA',
+    greeting: 'Olá! Aqui é a Ana do Escritório Contábil Souza & Associados. 📊 Posso te ajudar com alguma questão fiscal, abertura de empresa ou regularização?',
+    prompt: 'Você é Ana, atendente virtual de um escritório de contabilidade chamado Souza & Associados. Atenda com profissionalismo. Pode: tirar dúvidas gerais sobre MEI, Simples Nacional, abertura de empresa, agendar reunião com um contador. Não dà informações fiscais específicas sem dados do cliente. Seja objetivo, 2-3 frases por mensagem. Nunca quebre o personagem.',
+    callSub: 'Simulação: atendente de escritório contábil'
   },
   advocacia: {
     label: 'Advocacia',
-    agentName: 'Ana â Recepcionista JurÃ­dica IA',
-    greeting: 'Boa tarde! Aqui Ã© a Ana, recepcionista do EscritÃ³rio Silva Advocacia. âï¸ Qual Ã¡rea jurÃ­dica vocÃª precisa de suporte hoje?',
-    prompt: 'VocÃª Ã© Ana, recepcionista virtual de um escritÃ³rio de advocacia chamado Silva Advocacia. Atenda com profissionalismo e empatia. Pode: identificar a Ã¡rea (trabalhista, cÃ­vel, famÃ­lia, criminal, empresarial), agendar consulta inicial, informar que a consulta inicial custa R$ 150. Nunca dÃª parecer jurÃ­dico. Seja objetivo, 2-3 frases. Nunca quebre o personagem.',
-    callSub: 'SimulaÃ§Ã£o: recepcionista de escritÃ³rio jurÃ­dico'
+    agentName: 'Ana — Recepcionista Jurídica IA',
+    greeting: 'Boa tarde! Aqui é a Ana, recepcionista do Escritório Silva Advocacia. ⚖️ Qual área jurídica você precisa de suporte hoje?',
+    prompt: 'Você é Ana, recepcionista virtual de um escritório de advocacia chamado Silva Advocacia. Atenda com profissionalismo e empatia. Pode: identificar a área (trabalhista, cível, família, criminal, empresarial), agendar consulta inicial, informar que a consulta inicial custa R$ 150. Nunca dê parecer jurídico. Seja objetivo, 2-3 frases. Nunca quebre o personagem.',
+    callSub: 'Simulação: recepcionista de escritório jurídico'
   },
   hotel: {
     label: 'Hotel / Pousada',
-    agentName: 'Ana â Concierge IA',
-    greeting: 'OlÃ¡! ð¨ Bem-vindo Ã  Pousada Vista Bela! Sou a Ana, sua concierge virtual. Quer fazer uma reserva ou tem alguma dÃºvida?',
-    prompt: 'VocÃª Ã© Ana, concierge virtual da Pousada Vista Bela, um hotel boutique charmoso. Atenda com calor e hospitalidade. Pode: verificar disponibilidade (perguntar datas e nÂº de hÃ³spedes), informar diÃ¡rias (a partir de R$ 280/noite), descrever estrutura (piscina, cafÃ© da manhÃ£ incluso, estacionamento), fazer reserva coletando dados. Seja natural e acolhedora, 2-3 frases. Nunca quebre o personagem.',
-    callSub: 'SimulaÃ§Ã£o: concierge de hotel'
+    agentName: 'Ana — Concierge IA',
+    greeting: 'Olá! 🏨 Bem-vindo à Pousada Vista Bela! Sou a Ana, sua concierge virtual. Quer fazer uma reserva ou tem alguma dúvida?',
+    prompt: 'Você é Ana, concierge virtual da Pousada Vista Bela, um hotel boutique charmoso. Atenda com calor e hospitalidade. Pode: verificar disponibilidade (perguntar datas e nº de hóspedes), informar diárias (a partir de R$ 280/noite), descrever estrutura (piscina, café da manhã incluso, estacionamento), fazer reserva coletando dados. Seja natural e acolhedora, 2-3 frases. Nunca quebre o personagem.',
+    callSub: 'Simulação: concierge de hotel'
   }
 };
 
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 //  STEPS
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 function goStep(n) {
   document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
   document.getElementById('step-' + n).classList.add('active');
   const pct = Math.round((n / 4) * 100);
   document.getElementById('progress-fill').style.width = (n <= 4 ? pct : 100) + '%';
-  document.getElementById('step-label').textContent = n <= 4 ? `Passo ${n} de 4` : 'DiagnÃ³stico concluÃ­do';
+  document.getElementById('step-label').textContent = n <= 4 ? `Passo ${n} de 4` : 'Diagnóstico concluído';
   document.getElementById('step-pct').textContent = (n <= 4 ? pct : 100) + '%';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -855,19 +855,19 @@ function formatPhone(el) {
   el.value = v;
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 //  RESULT CALCULATION
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 function calcResult() {
   state.nome = document.getElementById('nome').value.trim();
   state.whatsapp = document.getElementById('whatsapp').value.trim();
   if (!state.nome || !state.whatsapp) {
-    alert('Preencha seu nome e WhatsApp para ver o diagnÃ³stico.');
+    alert('Preencha seu nome e WhatsApp para ver o diagnóstico.');
     return;
   }
 
-  // LÃ³gica de estimativa
-  const taxaConversao = 0.12; // mÃ©dia mercado
+  // Lógica de estimativa
+  const taxaConversao = 0.12; // média mercado
   const perdaPorDemora = Math.round(state.leads * 0.35 * state.ticket * taxaConversao);
   const perdaFollowup  = Math.round(state.leads * 0.25 * state.ticket * taxaConversao);
   const custoManual    = Math.round(state.leads * 0.08 * state.ticket);
@@ -879,14 +879,14 @@ function calcResult() {
   document.getElementById('res-followup').textContent = fmt(perdaFollowup);
   document.getElementById('res-custo').textContent = fmt(custoManual);
   document.getElementById('res-sub').textContent =
-    `Baseado em ${state.leads} leads/mÃªs com ticket mÃ©dio de ${fmt(state.ticket)} â ${state.nicheLabel}`;
+    `Baseado em ${state.leads} leads/mês com ticket médio de ${fmt(state.ticket)} — ${state.nicheLabel}`;
 
   goStep(5);
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 //  WHATSAPP SIMULATION
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 function openWA(tab) {
   const cfg = NICHE_CONFIG[state.niche] || NICHE_CONFIG.clinica;
   document.getElementById('wa-agent-name').textContent = cfg.agentName;
@@ -1001,32 +1001,32 @@ async function sendMessage() {
     });
     const data = await resp.json();
     hideTyping();
-    const reply = data.reply || 'Desculpe, tive um problema tÃ©cnico. Pode repetir?';
+    const reply = data.reply || 'Desculpe, tive um problema técnico. Pode repetir?';
     addMessage('in', reply);
     chatHistory.push({ role: 'assistant', content: reply });
   } catch(e) {
     hideTyping();
-    addMessage('in', 'Ops! ConexÃ£o instÃ¡vel. Tente novamente em instantes.');
+    addMessage('in', 'Ops! Conexão instável. Tente novamente em instantes.');
   }
 
   document.getElementById('wa-send').disabled = false;
   document.getElementById('wa-input').focus();
 }
 
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 //  CLICK-TO-CALL
-// âââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════
 async function requestCall() {
   const phone = document.getElementById('call-phone').value.replace(/\D/g,'');
   if (phone.length < 10) {
-    alert('Digite seu nÃºmero com DDD para receber a ligaÃ§Ã£o.');
+    alert('Digite seu número com DDD para receber a ligação.');
     return;
   }
 
   const btn = document.getElementById('btn-call');
   const status = document.getElementById('call-status');
   btn.disabled = true;
-  btn.textContent = 'â³ Iniciando ligaÃ§Ã£o...';
+  btn.textContent = '⏳ Iniciando ligação...';
   status.classList.remove('show');
 
   try {
@@ -1037,20 +1037,19 @@ async function requestCall() {
     });
     const data = await resp.json();
     if (data.success) {
-      status.textContent = 'â LigaÃ§Ã£o iniciada! Atenda seu telefone em instantes.';
+      status.textContent = '✅ Ligação iniciada! Atenda seu telefone em instantes.';
       status.classList.add('show');
-      btn.textContent = 'ð LigaÃ§Ã£o em andamento...';
+      btn.textContent = '📞 Ligação em andamento...';
     } else {
       throw new Error(data.error || 'Erro');
     }
   } catch(e) {
     btn.disabled = false;
-    btn.textContent = 'ð Receber ligaÃ§Ã£o agora';
-    status.textContent = 'â ï¸ NÃ£o foi possÃ­vel iniciar. Ligue diretamente: (11) 9999-9999';
+    btn.textContent = '📞 Receber ligação agora';
+    status.textContent = '⚠️ Não foi possível iniciar. Ligue diretamente: (11) 9999-9999';
     status.classList.add('show');
   }
 }
 </script>
 </body>
 </html>
-<!-- v2.0 - overlay chat + voice simulation -->
