@@ -1,12 +1,4 @@
 {
-  "functions": {
-    "api/chat.js": {
-      "runtime": "edge"
-    },
-    "api/call.js": {
-      "runtime": "edge"
-    }
-  },
   "headers": [
     {
       "source": "/api/(.*)",
